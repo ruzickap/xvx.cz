@@ -1,0 +1,17 @@
+baseURL = "https://xvx.cz"
+languageCode = "en-US"
+title = "XvX.cz Site"
+theme = "bootstrap-bp-hugo-startpage"
+googleAnalytics = "UA-6594742-8"
+copyright = "Petr Ruzicka"
+enableRobotsTXT = true
+pygmentsCodeFences = true
+canonifyurls = true
+paginate = 5
+
+[params]
+  description = "XvX.cz Site"
+  #images = ["logo.jpg"]
+  startPageColumns = false
+  welcomeText = "XvX.cz Site"
+  showGoogleSearch = false
