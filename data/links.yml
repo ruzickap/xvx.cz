@@ -1,21 +1,21 @@
 ---
 - group: Web pages
   items:
-    - title: Petr's blog (petr.ruzicka.dev)
+    - title: Petr's blog<br>(petr.ruzicka.dev)
       url: https://linux.xvx.cz
       icon: fab fa-linux
-    - title: Petr's Home Page (petr.ruzicka.dev)
+    - title: Petr's Home Page<br>(petr.ruzicka.dev)
       url: https://petr.ruzicka.dev/
       icon: fas fa-user
-    - title: Petr's old blog (linux-old.xvx.cz)
+    - title: Petr's old blog<br>(linux-old.xvx.cz)
       url: https://linux-old.xvx.cz/
       icon: fab fa-linux
-    - title: Travel blog (cestovani.xvx.cz)
+    - title: Travel blog<br>(cestovani.xvx.cz)
       url: https://cestovani.xvx.cz/
       icon: fas fa-plane
-    - title: Bozena's Home Page (ruzickovabozena.xvx.cz)
+    - title: Bozena's Home Page<br>(ruzickovabozena.xvx.cz)
       url: https://ruzickovabozena.xvx.cz/
       icon: fas fa-music
-    - title: Wedding Page (svatba.xvx.cz)
+    - title: Wedding Page<br>(svatba.xvx.cz)
       url: https://svatba.xvx.cz/
       icon: far fa-heart

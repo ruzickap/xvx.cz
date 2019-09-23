@@ -7,7 +7,6 @@ copyright = "Petr Ruzicka"
 enableRobotsTXT = true
 pygmentsCodeFences = true
 canonifyurls = true
-paginate = 5
 
 [params]
   description = "XvX.cz Site"
