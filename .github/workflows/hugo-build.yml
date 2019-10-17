@@ -22,7 +22,6 @@ jobs:
       run: |
         hugo --gc
         cp LICENSE README.md public/
-        touch public/.nojekyll
         echo ${GITHUB_REPOSITORY##*/} > public/CNAME
 
     - name: "Check links"
