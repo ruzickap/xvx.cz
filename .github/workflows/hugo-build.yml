@@ -26,15 +26,11 @@ jobs:
           echo "${{ github.event.repository.name }}" > public/CNAME
 
       - name: Check broken links
-        env:
-          EXCLUDE: |
-            linkedin.com
-        run: |
-          export INPUT_URL="https://${{ github.event.repository.name }}"
-          export INPUT_PAGES_PATH="public"
-          INPUT_CMD_PARAMS="--buffer-size=8192 --max-connections=10 --color=always --skip-tls-verification --exclude=($( echo "${EXCLUDE}" | tr '\n' '|' ))"
-          export INPUT_CMD_PARAMS
-          wget -qO- https://raw.githubusercontent.com/ruzickap/action-my-broken-link-checker/v2/entrypoint.sh | bash
+        uses: ruzickap/action-my-broken-link-checker@v2
+        with:
+          url: https://${{ github.event.repository.name }}
+          pages_path: public
+          cmd_params: '--exclude=(linkedin.com) --max-connections-per-host=5 --color=always --rate-limit=5 --header="User-Agent:curl/7.54.0" --skip-tls-verification'
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
