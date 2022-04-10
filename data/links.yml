@@ -1,7 +1,7 @@
 ---
 - group: Web pages
   items:
-    - title: Petr's blog<br>(petr.ruzicka.dev)
+    - title: Petr's blog<br>(linux.xvx.cz)
       url: https://linux.xvx.cz
       icon: fab fa-linux
     - title: Petr's Home Page<br>(petr.ruzicka.dev)
