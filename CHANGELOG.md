@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.1.0](https://github.com/ruzickap/xvx.cz/compare/v0.0.1...v0.1.0) (2023-12-18)
+
+
+### Features
+
+* **gh_actions:** remove dependabot ([#51](https://github.com/ruzickap/xvx.cz/issues/51)) ([8fb0a0a](https://github.com/ruzickap/xvx.cz/commit/8fb0a0aed569d3217ba36b195ab30e695e76b469))
+* **gh-actions:** add lint-pr-title ([#49](https://github.com/ruzickap/xvx.cz/issues/49)) ([3ddf9f4](https://github.com/ruzickap/xvx.cz/commit/3ddf9f42b3497aac434bd75467453c1b7502e2f7))
+* **gha:** update GHA, add renovate, release-please, hugo theme ([#52](https://github.com/ruzickap/xvx.cz/issues/52)) ([abd0a27](https://github.com/ruzickap/xvx.cz/commit/abd0a2756f9916e7b085c9334033489bf563b207))
+
 ## v0.0.1 (2020-05-10)
 
 - Bump themes/bootstrap-bp-hugo-startpage from `5649f8c` to `5b39723` [`#1`](https://github.com/ruzickap/xvx.cz/pull/1)
