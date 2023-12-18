@@ -1,13 +1,16 @@
 ---
 - group: Web pages
   items:
-    - title: Petr's blog<br>(linux.xvx.cz)
-      url: https://linux.xvx.cz
-      icon: fab fa-linux
+    - title: Petr's blog<br>(ruzickap.github.io)
+      url: https://ruzickap.github.io
+      icon: fab fa-user
     - title: Petr's Home Page<br>(petr.ruzicka.dev)
       url: https://petr.ruzicka.dev/
       icon: fas fa-user
-    - title: Petr's old blog<br>(linux-old.xvx.cz)
+    - title: Petr's old blog<br>(linux.xvx.cz)
+      url: https://linux.xvx.cz/
+      icon: fab fa-linux
+    - title: Petr's old Wordpress based blog<br>(linux-old.xvx.cz)
       url: https://linux-old.xvx.cz/
       icon: fab fa-linux
     - title: Travel blog<br>(cestovani.xvx.cz)
