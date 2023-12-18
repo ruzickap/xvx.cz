@@ -3,7 +3,7 @@
   items:
     - title: Petr's blog<br>(ruzickap.github.io)
       url: https://ruzickap.github.io
-      icon: fab fa-user
+      icon: fas fa-user
     - title: Petr's Home Page<br>(petr.ruzicka.dev)
       url: https://petr.ruzicka.dev/
       icon: fas fa-user
