@@ -1,5 +1,23 @@
 # Changelog
 
+## [0.2.0](https://github.com/ruzickap/xvx.cz/compare/v0.1.0...v0.2.0) (2024-12-08)
+
+
+### Features
+
+* add GitHub default templates ([#69](https://github.com/ruzickap/xvx.cz/issues/69)) ([8a1d4e1](https://github.com/ruzickap/xvx.cz/commit/8a1d4e1e15d9223cba0fc0f6f4620ffb31ae14a9))
+* **gh:** add default GitHub repo files ([#58](https://github.com/ruzickap/xvx.cz/issues/58)) ([54c3082](https://github.com/ruzickap/xvx.cz/commit/54c308225a31914757493959ad86899eac38e961))
+* **gh:** add default GitHub repo files ([#59](https://github.com/ruzickap/xvx.cz/issues/59)) ([0b5825d](https://github.com/ruzickap/xvx.cz/commit/0b5825d2c31cfdb756185c88a42c975a2b9987a0))
+* **gh:** add default GitHub repo files ([#60](https://github.com/ruzickap/xvx.cz/issues/60)) ([1a0a079](https://github.com/ruzickap/xvx.cz/commit/1a0a0797fcbfd6c48f5f451fb7059c382677ac86))
+* **gh:** add default github repo files ([#73](https://github.com/ruzickap/xvx.cz/issues/73)) ([79df154](https://github.com/ruzickap/xvx.cz/commit/79df1546de9816743ae3d3e9481b6b863f6c05cb))
+* **gha:** unify GHA - renovate, megalinter, markdown, and others ([#57](https://github.com/ruzickap/xvx.cz/issues/57)) ([85207af](https://github.com/ruzickap/xvx.cz/commit/85207af0e3994f1c73ae4dc492069607d86c9e2b))
+
+
+### Bug Fixes
+
+* **typo:** use correct icon name ([#56](https://github.com/ruzickap/xvx.cz/issues/56)) ([d7919e8](https://github.com/ruzickap/xvx.cz/commit/d7919e89536298deba90159de5a52047aabac225))
+* **url:** change blog URLs ([#54](https://github.com/ruzickap/xvx.cz/issues/54)) ([3185e1c](https://github.com/ruzickap/xvx.cz/commit/3185e1c669cd2a4ef055eb04b3d27b210d5969a3))
+
 ## [0.1.0](https://github.com/ruzickap/xvx.cz/compare/v0.0.1...v0.1.0) (2023-12-18)
 
 
