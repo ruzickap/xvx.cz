@@ -39,7 +39,7 @@ jobs:
         with:
           url: ${{ steps.pages.outputs.base_url }}
           pages_path: public
-          cmd_params: '--exclude="(html5up.net|instagram.com|linkedin.com|pixabay.com|unsplash.com)" --buffer-size=8192 --ignore-fragments --max-connections-per-host=5 --color=always --rate-limit=1 --header="User-Agent: Mozilla/5.0" --skip-tls-verification --timeout=20'
+          cmd_params: '--exclude="(html5up.net|instagram.com|linkedin.com|pixabay.com|unsplash.com)" --buffer-size=8192 --ignore-fragments --color=always --header="User-Agent: Mozilla/5.0" --max-connections-per-host=1 --max-connections=1 --rate-limit=1  --skip-tls-verification --timeout=20'
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@4f9cc6602d3f66b9c108549d475ec49e8ef4d45e # v4.0.0
