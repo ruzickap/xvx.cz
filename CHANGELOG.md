@@ -1,5 +1,31 @@
 # Changelog
 
+## [0.2.0](https://github.com/ruzickap/xvx.cz/compare/v0.1.0...v0.2.0) (2026-01-01)
+
+
+### Features
+
+* add codeql-actions ([#75](https://github.com/ruzickap/xvx.cz/issues/75)) ([dec6086](https://github.com/ruzickap/xvx.cz/commit/dec608656f314d99d5c5d1d46ea28c76e85a784b))
+* add default github repo files ([#83](https://github.com/ruzickap/xvx.cz/issues/83)) ([0aa6753](https://github.com/ruzickap/xvx.cz/commit/0aa675324523fede292ad7d5f470017bc679d35b))
+* add GitHub default templates ([#69](https://github.com/ruzickap/xvx.cz/issues/69)) ([8a1d4e1](https://github.com/ruzickap/xvx.cz/commit/8a1d4e1e15d9223cba0fc0f6f4620ffb31ae14a9))
+* add/update default repository files ([#85](https://github.com/ruzickap/xvx.cz/issues/85)) ([abb1f53](https://github.com/ruzickap/xvx.cz/commit/abb1f534bfebab5ad929cc485188f7dffd9caecb))
+* add/update default repository files ([#92](https://github.com/ruzickap/xvx.cz/issues/92)) ([fae2354](https://github.com/ruzickap/xvx.cz/commit/fae2354ae655e593c8ce1d176070f5ebf577095b))
+* gha update, add SECURITY.md, scorecards, slack notification ([#74](https://github.com/ruzickap/xvx.cz/issues/74)) ([5a73283](https://github.com/ruzickap/xvx.cz/commit/5a732830b4855affd6a3470196b32cafe3fd2bc8))
+* **gh:** add default GitHub repo files ([#58](https://github.com/ruzickap/xvx.cz/issues/58)) ([54c3082](https://github.com/ruzickap/xvx.cz/commit/54c308225a31914757493959ad86899eac38e961))
+* **gh:** add default GitHub repo files ([#59](https://github.com/ruzickap/xvx.cz/issues/59)) ([0b5825d](https://github.com/ruzickap/xvx.cz/commit/0b5825d2c31cfdb756185c88a42c975a2b9987a0))
+* **gh:** add default GitHub repo files ([#60](https://github.com/ruzickap/xvx.cz/issues/60)) ([1a0a079](https://github.com/ruzickap/xvx.cz/commit/1a0a0797fcbfd6c48f5f451fb7059c382677ac86))
+* **gh:** add default github repo files ([#73](https://github.com/ruzickap/xvx.cz/issues/73)) ([79df154](https://github.com/ruzickap/xvx.cz/commit/79df1546de9816743ae3d3e9481b6b863f6c05cb))
+* **gh:** add default github repo files ([#81](https://github.com/ruzickap/xvx.cz/issues/81)) ([c02aaee](https://github.com/ruzickap/xvx.cz/commit/c02aaeefa118a026cbe553925505102160814396))
+* **gha:** unify GHA - renovate, megalinter, markdown, and others ([#57](https://github.com/ruzickap/xvx.cz/issues/57)) ([85207af](https://github.com/ruzickap/xvx.cz/commit/85207af0e3994f1c73ae4dc492069607d86c9e2b))
+
+
+### Bug Fixes
+
+* add apostrophe to exclude parameter ([#78](https://github.com/ruzickap/xvx.cz/issues/78)) ([21b0a21](https://github.com/ruzickap/xvx.cz/commit/21b0a21da246ff5a2af0d4f3516871de1935cfbb))
+* **typo:** use correct icon name ([#56](https://github.com/ruzickap/xvx.cz/issues/56)) ([d7919e8](https://github.com/ruzickap/xvx.cz/commit/d7919e89536298deba90159de5a52047aabac225))
+* **url:** change blog URLs ([#54](https://github.com/ruzickap/xvx.cz/issues/54)) ([3185e1c](https://github.com/ruzickap/xvx.cz/commit/3185e1c669cd2a4ef055eb04b3d27b210d5969a3))
+* use per job permissions in release-please ([#76](https://github.com/ruzickap/xvx.cz/issues/76)) ([b40abb4](https://github.com/ruzickap/xvx.cz/commit/b40abb4982569af10bbfe07293ccc4cb5ada01f8))
+
 ## [0.1.0](https://github.com/ruzickap/xvx.cz/compare/v0.0.1...v0.1.0) (2023-12-18)
 
 
