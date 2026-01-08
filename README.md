@@ -1,6 +1,6 @@
 # Personal pages
 
-[![Build Status](https://github.com/ruzickap/xvx.cz/workflows/hugo-build/badge.svg)](https://github.com/ruzickap/xvx.cz)
+[![Build Status](https://github.com/ruzickap/xvx.cz/workflows/gh-pages-build/badge.svg)](https://github.com/ruzickap/xvx.cz)
 
 [https://xvx.cz](https://xvx.cz)
 
@@ -20,11 +20,49 @@ The website is built using the following technologies:
   `bootstrap-bp-hugo-startpage` theme.
 * **GitHub Pages:** Used for hosting the static website.
 
+## Building Locally for GitHub Pages
+
+To build the site locally for GitHub Pages:
+
+1. **Install Hugo:**
+
+   ```bash
+   # macOS (using Homebrew)
+   brew install hugo
+
+   # Or download from https://gohugo.io/installation/
+   ```
+
+2. **Build the site:**
+
+   ```bash
+   hugo
+   ```
+
+   This generates the static site in the `public/` directory.
+
+3. **Preview locally:**
+
+   ```bash
+   hugo server
+   ```
+
+   The site will be available at `http://localhost:1313/`
+
+4. **Build for production:**
+
+   ```bash
+   hugo --minify
+   ```
+
+   This creates an optimized build with minified assets in the `public/`
+   directory, ready for deployment to GitHub Pages.
+
 ## Repository Structure
 
 Key files and directories in this repository include:
 
-* `config.toml`: The main Hugo configuration file, defining site
+* `hugo.toml`: The main Hugo configuration file, defining site
   parameters, themes, and other settings.
 * `data/`: Contains data files (e.g., YAML or TOML) used by Hugo to
   generate site content, such as the links on the start page.
@@ -32,6 +70,3 @@ Key files and directories in this repository include:
   custom CSS, or JavaScript files that are served as-is.
 * `themes/`: Contains the Hugo theme(s) used for the site. This site uses
   the `bootstrap-bp-hugo-startpage` theme.
-* `.github/workflows/`: Contains GitHub Actions workflow configurations,
-  automating tasks like building the Hugo site, checking for broken
-  links, and deploying to GitHub Pages.
