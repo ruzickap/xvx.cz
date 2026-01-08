@@ -1,4 +1,4 @@
-baseURL = "https://xvx.cz"
+baseURL = "https://xvx.cz/"
 languageCode = "en-US"
 title = "XvX.cz Site"
 theme = "bootstrap-bp-hugo-startpage"
