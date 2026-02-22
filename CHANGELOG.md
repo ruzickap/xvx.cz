@@ -1,5 +1,21 @@
 # Changelog
 
+## [1.0.0](https://github.com/ruzickap/xvx.cz/compare/v0.2.0...v1.0.0) (2026-02-22)
+
+
+### ⚠ BREAKING CHANGES
+
+* update README with local build instructions ([#110](https://github.com/ruzickap/xvx.cz/issues/110))
+
+### Features
+
+* change Hugo configuration and update workflows ([#108](https://github.com/ruzickap/xvx.cz/issues/108)) ([4acb387](https://github.com/ruzickap/xvx.cz/commit/4acb3874670f221189e247ca47c07764df29d67b))
+
+
+### Documentation
+
+* update README with local build instructions ([#110](https://github.com/ruzickap/xvx.cz/issues/110)) ([a5b60c6](https://github.com/ruzickap/xvx.cz/commit/a5b60c66212d6981bf01941977ae963170574f9b))
+
 ## [0.2.0](https://github.com/ruzickap/xvx.cz/compare/v0.1.0...v0.2.0) (2026-01-01)
 
 
