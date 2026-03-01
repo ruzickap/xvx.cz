@@ -19,8 +19,8 @@ hugo build --minify --printPathWarnings --printI18nWarnings \
 hugo server
 
 # Markdown linting (rumdl - Rust-based markdown linter)
-rumdl .                          # lint all markdown
-rumdl README.md                  # lint a single file
+rumdl .         # lint all markdown
+rumdl README.md # lint a single file
 
 # Shell linting (for scripts and markdown code blocks)
 shellcheck --exclude=SC2317 script.sh
