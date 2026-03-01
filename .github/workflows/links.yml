@@ -17,6 +17,7 @@ permissions: read-all
 jobs:
   links:
     runs-on: ubuntu-24.04-arm
+    timeout-minutes: 5
     steps:
       - name: Checkout
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
@@ -33,12 +34,19 @@ jobs:
           key: cache-lychee-${{ github.sha }}
           restore-keys: cache-lychee-
 
+      # https://github.com/lycheeverse/lychee/issues/1734
+      - name: Remove unavailable URLs from cache to check them again
+        run: |
+          if [[ -f .lycheecache ]]; then
+            sed -i '/,,/d' .lycheecache
+          fi
+
       - name: Link Checker
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         uses: lycheeverse/lychee-action@8646ba30535128ac92d33dfc9133794bfdd9b411 # v2.8.0
         with:
-          args: --include-verbatim --no-progress ${{ steps.pages.outputs.base_url }}
+          args: --include-verbatim --no-progress ${{ steps.pages.outputs.base_url }} --root-dir "${PWD}"
 
       - name: Save lychee cache
         uses: actions/cache/save@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 # v5.0.3

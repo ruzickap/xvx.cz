@@ -29,6 +29,7 @@ defaults:
 jobs:
   gh-pages-build:
     runs-on: ubuntu-24.04-arm
+    timeout-minutes: 5
     permissions:
       contents: write
       deployments: write
@@ -58,6 +59,13 @@ jobs:
           path: .lycheecache
           key: cache-lychee-${{ github.sha }}
           restore-keys: cache-lychee-
+
+      # https://github.com/lycheeverse/lychee/issues/1734
+      - name: Remove unavailable URLs from cache to check them again
+        run: |
+          if [[ -f .lycheecache ]]; then
+            sed -i '/,,/d' .lycheecache
+          fi
 
       - name: 🔗 Check for broken links
         env:
