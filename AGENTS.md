@@ -44,7 +44,7 @@ entirely through linting, link checking, and security scanning in CI.
 
 ## Markdown Style
 
-- Wrap lines at **72 characters**
+- Wrap lines at **80 characters**
 - Use proper heading hierarchy (never skip levels)
 - Include language identifiers in code fences (e.g., `bash`, `json`)
 - Prefer code fences over inline code for multi-line examples
