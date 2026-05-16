@@ -36,7 +36,7 @@ jsonlint --comments file.json
 actionlint
 
 # Security scanning (CI only, via MegaLinter)
-# checkov, DevSkim, KICS (--fail-on high), trivy (HIGH,CRITICAL)
+# checkov, DevSkim, trivy (HIGH,CRITICAL)
 ```
 
 There are **no unit tests or test framework**. Quality is enforced
@@ -99,7 +99,6 @@ CI runs multiple scanners (all configured in `.mega-linter.yml`):
 - **Checkov**: IaC scanner (skips `CKV_GHA_7`)
 - **DevSkim**: Pattern scanner (ignores DS162092, DS137138;
   excludes `CHANGELOG.md`)
-- **KICS**: Fails only on HIGH severity
 - **Trivy**: HIGH/CRITICAL only, ignores unfixed vulnerabilities
 
 ## Version Control
