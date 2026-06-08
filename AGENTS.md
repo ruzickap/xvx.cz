@@ -1,160 +1,81 @@
-# AI Agent Guidelines
+# AGENTS.md
 
-## Project Overview
+Guidance for agents working in this repo. Repo-specific gotchas only; assume
+standard knowledge otherwise.
 
-Hugo static site (personal landing page at xvx.cz). No application
-code -- content is in `data/links.yml`, configuration in `hugo.toml`,
-theme via git submodule in `themes/`. CI enforces linting, link
-checking, and security scanning via MegaLinter.
+## What this is
 
-## Build / Lint / Test Commands
+Hugo static site for the personal landing page <https://xvx.cz>. It is a thin,
+data-driven start page: there is **no `content/` or `layouts/` directory**. The
+visible links come from `data/links.yml`, and look-and-feel comes entirely from
+the theme. `hugo.toml` is the only site config.
+
+## Critical: the theme is a git submodule
+
+`themes/bootstrap-bp-hugo-startpage` is a git submodule and is often **not
+checked out** (a fresh/automation clone leaves it empty). `hugo` will fail or
+render a blank site until you initialize it:
 
 ```bash
-# Build the site (requires hugo + initialized submodule)
 git submodule update --init --recursive
-hugo build --minify --printPathWarnings --printI18nWarnings \
-  --panicOnWarning
-
-# Local preview
-hugo server
-
-# Markdown linting (rumdl - Rust-based markdown linter)
-rumdl .         # lint all markdown
-rumdl README.md # lint a single file
-
-# Shell linting (for scripts and markdown code blocks)
-shellcheck --exclude=SC2317 script.sh
-shfmt --case-indent --indent 2 --space-redirects -d script.sh
-
-# Link checking
-lychee --root-dir ./public --no-progress public
-
-# JSON linting
-jsonlint --comments file.json
-
-# GitHub Actions validation
-actionlint
-
-# Security scanning (CI only, via MegaLinter)
-# checkov, DevSkim, trivy (HIGH,CRITICAL)
 ```
 
-There are **no unit tests or test framework**. Quality is enforced
-entirely through linting, link checking, and security scanning in CI.
+Do not commit edits to files inside `themes/` — they belong to the upstream
+submodule repo.
 
-## Markdown Style
+## Build & preview
 
-- Wrap lines at **80 characters**
-- Use proper heading hierarchy (never skip levels)
-- Include language identifiers in code fences (e.g., `bash`, `json`)
-- Prefer code fences over inline code for multi-line examples
-- Use semantic HTML only when necessary
-- Files must pass `rumdl` checks (config: `.rumdl.toml`)
-  - `CHANGELOG.md` is excluded from linting (auto-generated)
-  - Code blocks are exempt from line length checks (MD013)
-- Shell code blocks (`bash`, `shell`, `sh`) are extracted in CI
-  and validated with `shellcheck` and `shfmt`
-- All URLs must be reachable (validated by `lychee`, config:
-  `lychee.toml`)
-
-## Shell Script Style
-
-- **Linting**: Must pass `shellcheck` (SC2317 excluded)
-- **Formatting**: `shfmt --case-indent --indent 2 --space-redirects`
-- **Variables**: Uppercase with braces: `${MY_VARIABLE}`
-- **Conditionals**: Use `[[ ]]` (bash-specific)
-- **Quoting**: Always double-quote variable expansions
-- **Error handling**: Use `set -euxo pipefail` or the equivalent
-  `bash -euxo pipefail {0}` shell default in workflows
-
-## YAML Style
-
-- Start files with `---` document separator
-- Use 2-space indentation
-- Add descriptive comments above configuration blocks
-- Use `# keep-sorted start` / `# keep-sorted end` markers for
-  lists that should remain sorted (see `.mega-linter.yml`)
-
-## JSON Style
-
-- Must pass `jsonlint` validation (comments allowed via `--comments`)
-- `.devcontainer/devcontainer.json` is excluded from linting
-
-## GitHub Actions Style
-
-- **Pin actions** to full SHA commits with version comment:
-  `uses: actions/checkout@de0fac2... # v6.0.2`
-- **Permissions**: Set `permissions: read-all` at workflow level;
-  use minimal per-job overrides
-- **Shell**: Default to `bash -euxo pipefail {0}`
-- **Timeouts**: Set `timeout-minutes` on every job (typically 5)
-- **Runner**: Prefer `ubuntu-24.04-arm`
-- **Step names**: Use emoji prefixes for visual clarity
-- Validate changes with `actionlint` before committing
-
-## Security Scanning
-
-CI runs multiple scanners (all configured in `.mega-linter.yml`):
-
-- **Checkov**: IaC scanner (skips `CKV_GHA_7`)
-- **DevSkim**: Pattern scanner (ignores DS162092, DS137138;
-  excludes `CHANGELOG.md`)
-- **Trivy**: HIGH/CRITICAL only, ignores unfixed vulnerabilities
-
-## Version Control
-
-### Commit Messages
-
-Conventional commit format validated by `commit-check` action:
-
-```text
-<type>: <description>
+```bash
+hugo server   # local preview at http://localhost:1313/
+hugo --minify # production build into public/ (gitignored)
 ```
 
-- **Types**: `feat`, `fix`, `docs`, `chore`, `refactor`, `test`,
-  `style`, `perf`, `ci`, `build`, `revert`
-- Subject: imperative mood, lowercase, no period, max 72 chars
-- Body (optional): explain what and why, wrap at 72 chars
-- Reference issues: `Fixes #123`, `Closes #456`, `Resolves #789`
+CI builds with stricter flags that **fail on any warning** — match these before
+assuming a change is clean:
 
-Example:
-
-```text
-docs: update link checker configuration
-
-- Add cache exclusion for 403 responses
-- Exclude private IP addresses from checks
-
-Resolves: #42
+```bash
+hugo build --minify --printPathWarnings --printI18nWarnings --panicOnWarning
 ```
 
-### Branching
+There is no test suite; `public/`, `resources/_gen/`, and
+`.pre-commit-config.yaml` are gitignored.
 
-Follow [Conventional Branch](https://conventional-branch.github.io/)
-format: `<type>/<description>`
+## Linting (MegaLinter)
 
-- `feature/` or `feat/`: New features
-- `bugfix/` or `fix/`: Bug fixes
-- `hotfix/`: Urgent fixes
-- `release/`: Release prep (e.g., `release/v1.2.0`)
-- `chore/`: Non-code tasks (dependency updates, docs)
+All linting runs through **MegaLinter** (`documentation` flavor), configured in
+`.mega-linter.yml`. It only runs on push to **non-`main`** branches. Notable
+points an agent will otherwise get wrong:
 
-Use lowercase, hyphens, no consecutive/leading/trailing hyphens.
-Include issue numbers when applicable: `feature/issue-123-add-page`
+- Markdown is linted by **`rumdl`** (config `.rumdl.toml`), not markdownlint.
+- Links are checked by **`lychee`** (config `lychee.toml`), not
+  markdown-link-check.
+- **Shell code blocks inside Markdown are extracted and shellcheck-validated.**
+  Any ```bash`/`shell`/`sh` fence must be valid, runnable shell.
+- `CHANGELOG.md` is excluded from every linter — never hand-edit it (see below).
+- Active scanners: checkov, DevSkim, Trivy, plus tflint/Terraform linters that
+  exist in config but currently have no Terraform files to act on.
 
-### Pull Requests
+## Release & changelog
 
-- Always create as **draft** initially
-- Title must follow conventional commit format
-  (validated by `semantic-pull-request` action)
-- Include clear description of changes and motivation
-- Reference related issues with `Fixes`, `Closes`, `Resolves`
+Releases are automated by **release-please** (`release-type: simple`) on merge
+to `main`. `CHANGELOG.md` and version bumps are generated from conventional
+commit messages — do not edit `CHANGELOG.md` by hand.
 
-## General Quality Rules
+## Deploy flow
 
-- Two spaces for indentation (no tabs)
-- Pass all pre-commit hooks
-- Make atomic, focused commits
-- Update documentation for user-facing changes
-- `CHANGELOG.md` is auto-generated -- never edit manually
-- Code owner: `@ruzickap` (see `.github/CODEOWNERS`)
+`gh-pages-build` workflow runs on changes to `content/`, `data/`, `hugo.toml`,
+`layouts/`, `static/`, or `themes/`:
+
+- push to `main` → deploy to **GitHub Pages** (then link-checked with lychee).
+- push to any other branch → deploy a **Cloudflare Pages** preview.
+
+## Conventions
+
+- Commits: Conventional Commits, subject ≤ 72 chars, validated by
+  `commit-check`. Branches follow Conventional Branch (`feature/`, `fix/`,
+  `chore/`, etc.). PR titles are validated by `semantic-pull-request`; open PRs
+  as drafts.
+- GitHub Actions: pin actions to full commit SHAs, use minimal permissions, and
+  validate workflow edits with `actionlint`.
+- `keep-sorted` markers are used in several config files (`.gitignore`,
+  `.mega-linter.yml`) — preserve the sort order when editing those blocks.
