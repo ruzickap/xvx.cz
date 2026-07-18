@@ -1,5 +1,5 @@
 baseURL = "https://xvx.cz/"
-languageCode = "en-US"
+locale = "en-US"
 title = "XvX.cz Site"
 theme = "bootstrap-bp-hugo-startpage"
 copyright = "Petr Ruzicka"
