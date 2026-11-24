@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/ruzickap/xvx.cz/compare/v1.0.0...v1.0.1) (2026-11-24)
+
+
+### Bug Fixes
+
+* unblock the site deploy ([#131](https://github.com/ruzickap/xvx.cz/issues/131)) ([3a9bb31](https://github.com/ruzickap/xvx.cz/commit/3a9bb31b304e8a90ac584deb1acf18949d457c49))
+
 ## [1.0.0](https://github.com/ruzickap/xvx.cz/compare/v0.2.0...v1.0.0) (2026-11-24)
 
 
