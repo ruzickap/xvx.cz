@@ -2,8 +2,8 @@ baseURL = "https://xvx.cz/"
 locale = "en-US"
 title = "XvX.cz Site"
 theme = "bootstrap-bp-hugo-startpage"
-copyright = "Petr Ruzicka"
 enableRobotsTXT = true
+disableKinds = ["rss", "taxonomy", "term"]
 pygmentsCodeFences = true
 
 [params]
