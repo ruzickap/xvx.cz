@@ -1,1 +1,2 @@
-https://xvx.cz/css/vendor\.min\..*\.css
+# GitHub Pages answers its own 404 page with HTTP status 404
+https://xvx\.cz/404\.html

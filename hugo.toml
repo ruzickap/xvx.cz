@@ -5,7 +5,6 @@ theme = "bootstrap-bp-hugo-startpage"
 copyright = "Petr Ruzicka"
 enableRobotsTXT = true
 pygmentsCodeFences = true
-canonifyurls = true
 
 [params]
   description = "XvX.cz Site"
