@@ -64,17 +64,27 @@ commit messages — do not edit `CHANGELOG.md` by hand.
 ## Deploy flow
 
 `gh-pages-build` workflow runs on changes to `content/`, `data/`, `hugo.toml`,
-`layouts/`, `static/`, or `themes/`:
+`layouts/`, `static/`, `themes/`, or the workflow file itself. It builds the
+site and link-checks `public/` with lychee first; a broken link blocks the
+deploy:
 
-- push to `main` → deploy to **GitHub Pages** (then link-checked with lychee).
-- push to any other branch → deploy a **Cloudflare Pages** preview.
+- push to `main` → deploy to **GitHub Pages**.
+- push to any other branch → deploy a **Cloudflare Pages** preview (skipped on
+  `chore/renovate/*` branches).
+
+Keep `canonifyURLs` off in `hugo.toml`: absolute links make lychee fetch new,
+not yet deployed files (like the fingerprinted CSS) from the live site and fail.
 
 ## Conventions
 
 - Commits: Conventional Commits, subject ≤ 72 chars, validated by
   `commit-check`. Branches follow Conventional Branch (`feature/`, `fix/`,
-  `chore/`, etc.). PR titles are validated by `semantic-pull-request`; open PRs
+  `chore/`, etc.). PR titles are validated by `commit-check`; open PRs
   as drafts.
+- Everything under `.github/`, plus `.checkov.yml`, `.gitignore`,
+  `.mega-linter.yml`, `.rumdl.toml`, `lychee.toml` and `SECURITY.md`, is
+  overwritten by the `gh-repo-defaults` multi-gitter sync — change those files
+  upstream, not here.
 - GitHub Actions: pin actions to full commit SHAs, use minimal permissions, and
   validate workflow edits with `actionlint`.
 - `keep-sorted` markers are used in several config files (`.gitignore`,

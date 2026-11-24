@@ -16,8 +16,6 @@ Ruzickova's various websites and blogs.
 The website is built using the following technologies:
 
 * **Hugo:** A fast and flexible static site generator.
-* **Bootstrap:** A popular CSS framework for responsive design, via the
-  `bootstrap-bp-hugo-startpage` theme.
 * **GitHub Pages:** Used for hosting the static website.
 
 ## Building Locally for GitHub Pages
@@ -36,6 +34,8 @@ To build the site locally for GitHub Pages:
 2. **Build the site:**
 
    ```bash
+   # Fetch the theme (a git submodule), otherwise the site is empty
+   git submodule update --init --recursive
    hugo
    ```
 

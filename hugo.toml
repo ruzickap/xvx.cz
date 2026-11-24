@@ -2,14 +2,10 @@ baseURL = "https://xvx.cz/"
 locale = "en-US"
 title = "XvX.cz Site"
 theme = "bootstrap-bp-hugo-startpage"
-copyright = "Petr Ruzicka"
 enableRobotsTXT = true
-pygmentsCodeFences = true
-canonifyurls = true
+disableKinds = ["rss", "taxonomy", "term"]
 
 [params]
   description = "XvX.cz Site"
-  # images = ["logo.jpg"]
   startPageColumns = false
   welcomeText = "XvX.cz Site"
-  showGoogleSearch = false
